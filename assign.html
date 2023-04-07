@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="assign.css">
+</head>
+<body>
+    <script type="text/javascript">
+        // function ageCalculator(){
+        //     let birth=new Date(dob);
+        //     let month_diff=Date.now() -birth.getTime();
+        //     let age_dt=new Date(month_diff);
+        //     let year=age_dt.getUTCFullYear();
+        //     let age=Math.abs(year - 1970);
+        // }
+        // function{
+
+        // }
+
+        let myvar=setInterval(mytime,1000);
+        function mytime(){
+        let now=new Date();
+        document.getElementById('time').innerHTML=now.toLocaleTimeString(); 
+        } 
+        function validate(){
+        let fullname=document.getElementById('fullname').value;
+        let phone=document.getElementById('phone').value;
+        let email=document.getElementById('email').value;
+        let civic=document.getElementById('civic').value;
+        let male=document.getElementById('male');
+        let female=document.getElementById('female');
+        let address=document.getElementById('address').value;
+        let occupation=document.getElementById('occupation').value;
+        let dob=document.getElementById('dob').value;
+        let dobdate= new Date(dob);
+        let ageinmillisecs= Date.now() - dobdate.getTime();
+        let age= Math.floor(ageinmillisecs / 365.25 / 24/ 60 / 60 / 1000); 
+        // for(i=0; i<gender.length, i++;){
+        //     gen=gender[i].value;
+        // }
+        // let age= "dob" - now.toLocaleTimeString();
+        if (fullname=="null" || fullname==""){
+            alert("Please Enter Fullname");
+            return false;
+        }
+        if (dob=="null" || dob==""){
+            alert("Dear Mr/Mrs. " +fullname+ " Please, Enter your Date of Birth");
+            return false;
+        }
+        if (phone=="null" || phone==""){
+            alert("Dear Mr/Mrs. " +fullname+" Please, Enter your Phone Number");
+            return false;
+        }
+        if (email=="null" || email==""){
+            alert("Dear Mr/Mrs. " +fullname+" Please, Enter your Email Address");
+            return false;
+        }
+        if (civic=="null" || civic==""){
+            alert("Dear Mr/Mrs. " +fullname+" ,Enter your Relationship Status?");
+            return false;
+        }
+        if (!male.checked || !female.checked){
+            alert("Dear Mr/Mrs. " +fullname+" ,Select gender ");
+            return false;
+        }
+        if (address=="null" || address==""){
+            alert("Dear Mr/Mrs. " +fullname+" ,Please input your Address ");
+            return false;
+        }
+        if (occupation=="null" || occupation==""){
+            alert("Dear Mr/Mrs. " +fullname+" ,Tell us what do you do for work?");
+            return false;
+        }
+        alert("My name is " +fullname+ ", i am "+age+" years old, i'm a "+document.querySelector('input[name="gender"]:checked').value+ " i live in " +address+ " ,my Email Address is " +email+ " ,my phone number is " +phone+ " ,i am " +civic+ " and i work as a " +occupation);
+        }
+    </script>
+
+
+        <div class="videowrapper">
+        <video  muted autoplay loop plays-inline class="myvideo">
+            <source src="img/Island.mp4" type="video/mp4">
+        </video>
+        </div>
+        <div class="container">
+        <div class="left">
+           <div class="leftside"><img src="img/bird1.png" alt="" class="logo">
+            <h1>We Help You Build A Future in Tech....</h1>
+
+            </div> 
+        </div>
+        <div class="right"> 
+            <fieldset>
+            <legend><h1 id="time"></h1></legend>
+            <form action="" method="post" class="forms" onsubmit="return validate()">
+                <input type="text" name="fullname" id="fullname" class="inputs" placeholder="What's your Name"><br><br>
+                <input type="date" name="dob" id="dob" class="inputs" placeholder="When is your Birthday?"><br><br>
+                <input type="text" name="phone" id="phone" class="inputs" placeholder="Enter your Phone no." maxlength="11"><br><br>
+                <input type="email" name="email" id="email" class="inputs" placeholder="Enter Email Address" ><br><br>
+                <select name="civic" id="civic" class="inputs diff">
+                    <option disabled selected>What's your Marital Status?</option>
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                    <option value="divorced">Divorced</option>
+                    <option value="complicated">Complicated</option>
+                </select><br><br>
+                <input type="radio" name="gender" id="male" value="male" ><label>Male</label>
+                <input type="radio" name="gender" id="female" value="female"><label>Female</label><br><br>
+                <textarea name="address" id="address" cols="30" rows="3" placeholder="Address"></textarea><br><br>
+                <input type="text" name="occupation" id="occupation" class="inputs" placeholder="What do you do for work?" ><br><br>
+                <input type="submit" value="Register" name="submit" class="btnsubmit">
+            </form>
+            </fieldset>
+        </div>
+    </div>
+</body>
+</html>
